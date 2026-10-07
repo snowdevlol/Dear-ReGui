@@ -247,6 +247,17 @@ print("ReGui:", ReGui:GetVersion())
         end,
     })
 
+    Style:SliderFloat({
+        Label = "Transparent (SetUI)",
+        Minimum = 0,
+        Maximum = 1,
+        Value = 0,
+        Format = "%.2f",
+        Callback = function(self, Value)
+            ReGui.SetUI:Transparent(Value > 0 and Value or nil)
+        end,
+    })
+
     local WindowOptions = Content:CollapsingHeader({
         Title = "Window options"
     }):Table({
